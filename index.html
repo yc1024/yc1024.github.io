@@ -239,7 +239,30 @@
                 <!-- post-block -->
                 <div class="col-sm-4">
                     <div class="post-block">
-                        <a href="2018/04/02/first-blog/" class="post-preview" style="background-image: url()"></a>
+                        <a href="2018/04/04/mysql忘记root密码/" class="post-preview" style="background-image: url(/images/post_preview_default.jpg)"></a>
+                        <div class="small-post-text">
+                            <h5><a href="2018/04/04/mysql忘记root密码/">mysql忘记root密码</a></h5>
+                            <p class="small-post-meta">
+                                2018/04/04
+                            </p>
+                            <p class="space-bottom" style="max-height: 100px; overflow: hidden">
+                                今天意外的发现很久没有使用的mysql数据库密码忘记了..于是就秀一波操作吧..
+12345678sudo vim /etc/mysql/my.cnfskip-grant-tables  //添加这句话，见名知意，绕过授权sudo service mysql restartsudo mysql -u rootuse mysql;update user set password=password(&apos;root&apos;) where user=&apos;root&apos;; flush privileges;quit
+最后记得把skip-grant-tables 干掉..
+
+                            </p>
+                        </div>
+                        <!-- / small-post-text -->
+                    </div>
+                    <!-- / post-block -->
+                </div>
+                <!-- / col-md-4 -->
+                <!-- / post-block -->
+                
+                <!-- post-block -->
+                <div class="col-sm-4">
+                    <div class="post-block">
+                        <a href="2018/04/02/first-blog/" class="post-preview" style="background-image: url(/images/post_preview_default.jpg)"></a>
                         <div class="small-post-text">
                             <h5><a href="2018/04/02/first-blog/">first blog</a></h5>
                             <p class="small-post-meta">
@@ -259,7 +282,7 @@
                 <!-- post-block -->
                 <div class="col-sm-4">
                     <div class="post-block">
-                        <a href="2018/04/02/hello-world/" class="post-preview" style="background-image: url()"></a>
+                        <a href="2018/04/02/hello-world/" class="post-preview" style="background-image: url(/images/post_preview_default.jpg)"></a>
                         <div class="small-post-text">
                             <h5><a href="2018/04/02/hello-world/">Hello World</a></h5>
                             <p class="small-post-meta">

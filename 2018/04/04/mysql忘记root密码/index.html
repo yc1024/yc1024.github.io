@@ -140,11 +140,11 @@
                 <div class="blog block post-content-area">
                     <img src="/images/post_preview_default.jpg" alt="">
                     <div class="post-info-box">
-                        <h1 style="font-size: 48px;">first blog</h1>
+                        <h1 style="font-size: 48px;">mysql忘记root密码</h1>
                         <p class="post-info" style="margin-bottom: 15px;">
                             发表于:
                             <span style="color: #aaa; margin: 0 15px">
-                                2018.04.02
+                                2018.04.04
                             </span>
                              | 分类：
                              <a href="#" style="margin: 0 5px">
@@ -154,7 +154,10 @@
                              </a>
                              
                         </p>
-                        
+                        <p>今天意外的发现很久没有使用的mysql数据库密码忘记了..于是就秀一波操作吧..</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mysql/my.cnf</span><br><span class="line">skip-grant-tables  //添加这句话，见名知意，绕过授权</span><br><span class="line">sudo service mysql restart</span><br><span class="line">sudo mysql -u root</span><br><span class="line">use mysql;</span><br><span class="line">update user set password=password(&apos;root&apos;) where user=&apos;root&apos;; </span><br><span class="line">flush privileges;</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+<p>最后记得把<code>skip-grant-tables</code> 干掉..</p>
+
                     </div>
                     <!-- / post-info-box -->
                 </div>
