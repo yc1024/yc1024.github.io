@@ -9,13 +9,14 @@
   <title>mysql忘记root密码 | Yc&#39;s notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天意外的发现很久没有使用的mysql数据库密码忘记了..于是就秀一波操作吧.. 12345678sudo vim /etc/mysql/my.cnfskip-grant-tables  //添加这句话，见名知意，绕过授权sudo service mysql restartsudo mysql -u rootuse mysql;update user set password=password(&amp;">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql忘记root密码">
 <meta property="og:url" content="http://yoursite.com/2018/04/04/mysql忘记root密码/index.html">
 <meta property="og:site_name" content="Yc&#39;s notes">
 <meta property="og:description" content="今天意外的发现很久没有使用的mysql数据库密码忘记了..于是就秀一波操作吧.. 12345678sudo vim /etc/mysql/my.cnfskip-grant-tables  //添加这句话，见名知意，绕过授权sudo service mysql restartsudo mysql -u rootuse mysql;update user set password=password(&amp;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-04T08:12:37.542Z">
+<meta property="og:updated_time" content="2018-04-04T11:05:49.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql忘记root密码">
 <meta name="twitter:description" content="今天意外的发现很久没有使用的mysql数据库密码忘记了..于是就秀一波操作吧.. 12345678sudo vim /etc/mysql/my.cnfskip-grant-tables  //添加这句话，见名知意，绕过授权sudo service mysql restartsudo mysql -u rootuse mysql;update user set password=password(&amp;">
@@ -198,6 +199,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
