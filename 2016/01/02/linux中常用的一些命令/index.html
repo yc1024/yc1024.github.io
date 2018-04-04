@@ -79,7 +79,7 @@
                         </li>
                         
                         <li>
-	                        <a href="/post/index.html">
+	                        <a href="/index.html">
 	                        	
 	                        		<i class="fa fa-"></i>
 	                        	
@@ -182,6 +182,7 @@
 <p>去引号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;s/&quot;//g&apos;</span><br><span class="line">tr -d &apos;&quot;&apos;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">awk -F &apos;,&apos;  &apos;&#123;print $14,$15&#125;&apos; cup14w15w &gt;&gt; newcup</span><br><span class="line">tr -d \&quot; &lt; file </span><br><span class="line">cut -d\&quot; -f2  file</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat tag3 | awk &apos;&#123;if($0 ~ /ag/) print &quot; &quot;; else print &quot;C&quot;$0+1 &#125;&apos; &gt;&gt; tag5</span><br><span class="line">~ /ag/ 模糊匹配</span><br></pre></td></tr></table></figure>
+<p>shell中一行变一列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat inputFile |tr &quot;\n&quot; &quot; &quot;</span><br></pre></td></tr></table></figure></p>
 <p>参考 &gt;<a href="http://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html" target="_blank" rel="noopener">http://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html</a><br><a href="http://man.linuxde.net/tee" target="_blank" rel="noopener">http://man.linuxde.net/tee</a></p>
 
                     </div>
