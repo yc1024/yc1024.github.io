@@ -140,11 +140,11 @@
                 <div class="blog block post-content-area">
                     <img src="/images/post_preview_default.jpg" alt="">
                     <div class="post-info-box">
-                        <h1 style="font-size: 48px;">mysql忘记root密码</h1>
+                        <h1 style="font-size: 48px;">linux中常用的一些命令</h1>
                         <p class="post-info" style="margin-bottom: 15px;">
                             发表于:
                             <span style="color: #aaa; margin: 0 15px">
-                                2018.04.04
+                                2016.01.02
                             </span>
                              | 分类：
                              <a href="#" style="margin: 0 5px">
@@ -154,9 +154,35 @@
                              </a>
                              
                         </p>
-                        <p>今天意外的发现很久没有使用的mysql数据库密码忘记了..于是就秀一波操作吧..</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mysql/my.cnf</span><br><span class="line">skip-grant-tables  //添加这句话，见名知意，绕过授权</span><br><span class="line">sudo service mysql restart</span><br><span class="line">sudo mysql -u root</span><br><span class="line">use mysql;</span><br><span class="line">update user set password=password(&apos;root&apos;) where user=&apos;root&apos;; </span><br><span class="line">flush privileges;</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
-<p>最后记得把<code>skip-grant-tables</code> 干掉..</p>
+                        <p>tshark抓包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tshark -s 512 -i eth0 -n -f &apos;tcp dst port 80&apos; -R &apos;http.host and http.request.uri&apos; -T fields -e http.host -e http.request.uri -l | tr -d &apos;\t&apos;</span><br></pre></td></tr></table></figure></p>
+<p>查看CPU的型号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | grep name | cut -f2 -d: |uniq -c</span><br></pre></td></tr></table></figure></p>
+<p>查看CPU 几核几线程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;processor&apos; /proc/cpuinfo |sort -u |wc -l</span><br><span class="line">grep &apos;core id&apos; /proc/cpuinfo ｜sort -u |wc -l</span><br></pre></td></tr></table></figure></p>
+<p>以人性化的展示文件大小<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h file</span><br></pre></td></tr></table></figure></p>
+<p>文本按照列进行合并<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paste -d" " file1 file2 &gt;&gt; newFile</span><br></pre></td></tr></table></figure></p>
+<p>查看端口被哪个进程占用 以80端口为例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i: 80</span><br></pre></td></tr></table></figure></p>
+<p>端口扫描：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap ip</span><br></pre></td></tr></table></figure></p>
+<p>删除txt文本中的第一列的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -r -e &quot;s/^[[:space:]]+//&quot; -e &quot;s/^[^[:space:]]+[[:space:]]+//&quot; *.txt</span><br></pre></td></tr></table></figure></p>
+<p>####把log.txt中的前600行追加到log1.txt中去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n &apos;1,600 p&apos; log.txt &gt; log1.txt</span><br></pre></td></tr></table></figure></p>
+<p>####查看文件的编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enca -L zh filename.java</span><br></pre></td></tr></table></figure></p>
+<p>####解压/压缩 命令：</p>
+<p>#####后缀为gz:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：gzip -d FileName.gz</span><br><span class="line">压缩：gzip FileName</span><br></pre></td></tr></table></figure></p>
+<p>#####后缀为.tar.gz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：tar zxvf FileName.tar.gz</span><br><span class="line">压缩：tar zcvf FileName.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>####压缩为zip<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r myfile.zip myfile/*</span><br></pre></td></tr></table></figure></p>
+<p>#####后缀为.bz2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：bzip2 -d fleName.bz2</span><br><span class="line">压缩： bzip2 -z fileName</span><br></pre></td></tr></table></figure></p>
+<p>#####后缀为.rar<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：rar a FileName.rar</span><br><span class="line">压缩：r ar e FileName.rar</span><br></pre></td></tr></table></figure></p>
+<p>#####后缀为.tgz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解压：tar zxvf FileName.tgz</span><br></pre></td></tr></table></figure></p>
+<p>linux 查看外网ip<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl ifconfig.me</span><br><span class="line">curl http://members.3322.org/dyndns/getip</span><br></pre></td></tr></table></figure></p>
+<h4 id="在控制台打开某个文件窗口"><a href="#在控制台打开某个文件窗口" class="headerlink" title="在控制台打开某个文件窗口"></a>在控制台打开某个文件窗口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nautilus /home/***</span><br></pre></td></tr></table></figure>
+<p>####输出某一列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ××.txt |awk &apos;&#123;print $1&#125;&apos; &gt;&gt; out.txt</span><br></pre></td></tr></table></figure></p>
+<p>####循环读取文件夹中的文件并保存为新的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">for file in *</span><br><span class="line">do</span><br><span class="line">	if test -f $file</span><br><span class="line">	then</span><br><span class="line">		#echo $file is file!</span><br><span class="line">		cat $file |awk &apos;&#123;print $2&#125;&apos; &gt;&apos;N&apos;$file</span><br><span class="line">	else</span><br><span class="line">		echo $file is mulu!</span><br><span class="line">	fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
+<p>windows文件拷贝到linux乱码时 指定编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iconv -f GBK -t UTF-8 file1 -o file2</span><br></pre></td></tr></table></figure></p>
+<p>批量转码shell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">for i in *</span><br><span class="line">do</span><br><span class="line">iconv -f gb2312 -t utf-8 $i &gt;tmp</span><br><span class="line">cp tmp $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
+<p>文本去空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed s/[[:space:]]//g</span><br></pre></td></tr></table></figure></p>
+<p>文本文件内容洗牌<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat in.txt | awk &apos;BEGIN&#123;srand()&#125;&#123;print rand()&quot;\t&quot;$0&#125;&apos; | sort -k1,1 -n | cut -f2- &gt; out.txt</span><br></pre></td></tr></table></figure></p>
+<p>去引号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;s/&quot;//g&apos;</span><br><span class="line">tr -d &apos;&quot;&apos;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">awk -F &apos;,&apos;  &apos;&#123;print $14,$15&#125;&apos; cup14w15w &gt;&gt; newcup</span><br><span class="line">tr -d \&quot; &lt; file </span><br><span class="line">cut -d\&quot; -f2  file</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat tag3 | awk &apos;&#123;if($0 ~ /ag/) print &quot; &quot;; else print &quot;C&quot;$0+1 &#125;&apos; &gt;&gt; tag5</span><br><span class="line">~ /ag/ 模糊匹配</span><br></pre></td></tr></table></figure>
+<p>参考 &gt;<a href="http://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html" target="_blank" rel="noopener">http://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html</a><br><a href="http://man.linuxde.net/tee" target="_blank" rel="noopener">http://man.linuxde.net/tee</a></p>
 
                     </div>
                     <!-- / post-info-box -->
@@ -344,7 +370,7 @@ li {
         <div class="post-tab-content">
             <div id="post-scroll-spy" data-index="0" class="active post-tab-item animated MinefadeInUp">
                 <div class="post-toc">
-                    
+                    <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#在控制台打开某个文件窗口"><span class="nav-number">1.</span> <span class="nav-text">在控制台打开某个文件窗口</span></a></li></ol>
                 </div>
             </div>
             <div data-index="1" class="post-tab-item animated MinefadeInUp">

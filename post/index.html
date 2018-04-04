@@ -246,6 +246,68 @@ More info: Deployment
         <div class="space-50">&nbsp;</div>
         <!-- / col-sm-8 col-md-9 -->
     
+        <article class="post-item">
+            <div class="blog block post-content-area">
+                
+                <div class="post-info-box">
+                    <a href="2016/01/02/linux中常用的一些命令/"><h1>linux中常用的一些命令</h1></a>
+                    <div class="post-meta">
+                      <span class="post-date">2016.01</span>
+                      <a href="#" class="post-author">
+                        
+                            -
+                        
+                      </a>
+                    </div>
+                    <div style="max-height: 350px; overflow: hidden; line-height: 24px">
+                        tshark抓包1sudo tshark -s 512 -i eth0 -n -f &apos;tcp dst port 80&apos; -R &apos;http.host and http.request.uri&apos; -T fields -e http.host -e http.request.uri -l | tr -d &apos;\t&apos;
+查看CPU的型号1cat /proc/cpuinfo | grep name | cut -f2 -d: |uniq -c
+查看CPU 几核几线程12grep &apos;processor&apos; /proc/cpuinfo |sort -u |wc -lgrep &apos;core id&apos; /proc/cpuinfo ｜sort -u |wc -l
+以人性化的展示文件大小1du -h file
+文本按照列进行合并1paste -d" " file1 file2 &gt;&gt; newFile
+查看端口被哪个进程占用 以80端口为例:1sudo lsof -i: 80
+端口扫描：1nmap ip
+删除txt文本中的第一列的命令：1sed -i -r -e &quot;s/^[[:space:]]+//&quot; -e &quot;s/^[^[:space:]]+[[:space:]]+//&quot; *.txt
+####把log.txt中的前600行追加到log1.txt中去1sed -n &apos;1,600 p&apos; log.txt &gt; log1.txt
+####查看文件的编码：1enca -L zh filename.java
+####解压/压缩 命令：
+#####后缀为gz:12解压：gzip -d FileName.gz压缩：gzip FileName
+#####后缀为.tar.gz12解压：tar zxvf FileName.tar.gz压缩：tar zcvf FileName.tar.gz
+####压缩为zip1zip -r myfile.zip myfile/*
+#####后缀为.bz212解压：bzip2 -d fleName.bz2压缩： bzip2 -z fileName
+#####后缀为.rar12解压：rar a FileName.rar压缩：r ar e FileName.rar
+#####后缀为.tgz1解压：tar zxvf FileName.tgz
+linux 查看外网ip12curl ifconfig.mecurl http://members.3322.org/dyndns/getip
+在控制台打开某个文件窗口1nautilus /home/***
+####输出某一列1cat ××.txt |awk &apos;&#123;print $1&#125;&apos; &gt;&gt; out.txt
+####循环读取文件夹中的文件并保存为新的文件12345678910for file in *do	if test -f $file	then		#echo $file is file!		cat $file |awk &apos;&#123;print $2&#125;&apos; &gt;&apos;N&apos;$file	else		echo $file is mulu!	fidone
+windows文件拷贝到linux乱码时 指定编码1iconv -f GBK -t UTF-8 file1 -o file2
+批量转码shell123456#!/bin/shfor i in *doiconv -f gb2312 -t utf-8 $i &gt;tmpcp tmp $idone
+文本去空格1sed s/[[:space:]]//g
+文本文件内容洗牌1cat in.txt | awk &apos;BEGIN&#123;srand()&#125;&#123;print rand()&quot;\t&quot;$0&#125;&apos; | sort -k1,1 -n | cut -f2- &gt; out.txt
+去引号12sed &apos;s/&quot;//g&apos;tr -d &apos;&quot;&apos;
+123awk -F &apos;,&apos;  &apos;&#123;print $14,$15&#125;&apos; cup14w15w &gt;&gt; newcuptr -d \&quot; &lt; file cut -d\&quot; -f2  file
+12cat tag3 | awk &apos;&#123;if($0 ~ /ag/) print &quot; &quot;; else print &quot;C&quot;$0+1 &#125;&apos; &gt;&gt; tag5~ /ag/ 模糊匹配
+参考 &gt;http://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.htmlhttp://man.linuxde.net/tee
+
+                    </div>
+                    <div class="blog-post-footer">
+                        <a href="2016/01/02/linux中常用的一些命令/" class="btn btn-primary-filled"><span>阅读全文</span><i class="fa fa-long-arrow-right"></i></a>
+                        <div class="pull-right">
+                            
+                                <a href="#" class="post-tag">linux</a>
+                            
+                        </div>
+                    </div>
+                    <!-- / blog-post-footer -->
+                </div>
+                <!-- / post-info-box -->
+            </div>
+            <!-- / blog-block -->
+        </article>
+        <div class="space-50">&nbsp;</div>
+        <!-- / col-sm-8 col-md-9 -->
+    
 
             </div><!-- / col-sm-8 col-md-9 -->
             <!-- / blog content area -->
@@ -265,7 +327,7 @@ More info: Deployment
             <a href="/archives">
                 <!-- 计算文章 和 项目总数量 -->
                 
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">文章</span>
             </a>
         </div>
