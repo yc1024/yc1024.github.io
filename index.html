@@ -318,13 +318,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>改表法。可能是你的帐号不允许从远程登陆，只能在localhost。这个时候只要在localhost的那台电脑，登入mysql后，更改 “mysql” 数据库里的 “user” 表里的 “host” 项，从”localhost”改称”%” mysql -u root -pvmwaremysql&gt;use mysql; mysql&gt;update user set host = ‘%’ where user = ‘root’; mysql&gt;select host, user from user;</li>
-<li>授权法。 GRANT ALL PRIVILEGES ON . TO ‘myuser’@’%’IDENTIFIED BY ‘mypassword’ WI TH GRANT OPTION; 如果你想允许用户myuser从ip为192.168.1.6的主机连接到mysql服务器，并使用mypassword作为密码 GRANT ALL PRIVILEGES ON . TO ‘myuser’@’192.168.1.3’IDENTIFIED BY ‘mypassword’ WITH GRANT OPTION; 我用的第一个方法,刚开始发现不行,在网上查了一下,少执行一个语句 mysql&gt;FLUSH RIVILEGES 使修改生效，就可以了 另外一种方法： 在安装mysql的机器上运行： <p> 1.d:\mysql\bin&gt;mysql -h localhost -u root //这样应该可以进入MySQL服务器</p><p><br>2.mysql&gt;GRANT ALL PRIVILEGES ON . TO ‘root’@’%’WITH GRANT OPTION //赋予任何主机访问数据的权限</p><p> 3.  mysql&gt;FLUSH PRIVILEGES //修改生效<br></p><p>4.mysql&gt;EXIT //退出MySQL服务器 这样就可以在其它任何的主机上以root身份登录啦</p></li>
-</ol>
-<p>授权语句:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;root&apos; with grant option;</span><br><span class="line">//授权后刷新权限</span><br><span class="line">flush privileges</span><br></pre></td></tr></table></figure></p>
+        <p>授权语句:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;root&apos; with grant option;</span><br><span class="line">//授权后刷新权限</span><br><span class="line">flush privileges</span><br></pre></td></tr></table></figure></p>
 <p>注: 将root 改为你的mysql用户<br>修改数据库中的root密码，登陆后在mysql终端输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update mysql.user set password=PASSWORD(&apos;111111&apos;) where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>转载自： <a href="http://blog.csdn.net/xinshou_jiaoming/article/details/8585562" target="_blank" rel="noopener">http://blog.csdn.net/xinshou_jiaoming/article/details/8585562</a><br>   参考连接：<a href="http://www.2cto.com/database/201412/364316.html" target="_blank" rel="noopener">http://www.2cto.com/database/201412/364316.html</a></p>
+<p>参考文献<br>[1] <a href="http://blog.csdn.net/xinshou_jiaoming/article/details/8585562" target="_blank" rel="noopener">http://blog.csdn.net/xinshou_jiaoming/article/details/8585562</a><br>[2] <a href="http://www.2cto.com/database/201412/364316.html" target="_blank" rel="noopener">http://www.2cto.com/database/201412/364316.html</a></p>
 
       
 
