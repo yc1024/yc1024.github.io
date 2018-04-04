@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>解决mysql中文乱码并重启mysql.md | Yc&#39;s notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RedHat  下： 12345  开启： sudo  /etc/init.d/mysqld start  关闭： sudo  /etc/init.d/mysqld stop  重启： sudo   /etc/init.d/mysqld restart ``` Ubuntu 下：    开启： sudo  /etc/init.d/mysql start   关闭： sudo  /etc/init">
+  <meta name="description" content="RedHat  下：12345   开启： sudo  /etc/init.d/mysqld start   关闭： sudo  /etc/init.d/mysqld stop   重启： sudo   /etc/init.d/mysqld restart```  Ubuntu 下：    开启： sudo  /etc/init.d/mysql start   关闭： sudo  /etc/in">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决mysql中文乱码并重启mysql.md">
 <meta property="og:url" content="http://yoursite.com/2016/05/04/解决mysql中文乱码并重启mysql/index.html">
 <meta property="og:site_name" content="Yc&#39;s notes">
-<meta property="og:description" content="RedHat  下： 12345  开启： sudo  /etc/init.d/mysqld start  关闭： sudo  /etc/init.d/mysqld stop  重启： sudo   /etc/init.d/mysqld restart ``` Ubuntu 下：    开启： sudo  /etc/init.d/mysql start   关闭： sudo  /etc/init">
+<meta property="og:description" content="RedHat  下：12345   开启： sudo  /etc/init.d/mysqld start   关闭： sudo  /etc/init.d/mysqld stop   重启： sudo   /etc/init.d/mysqld restart```  Ubuntu 下：    开启： sudo  /etc/init.d/mysql start   关闭： sudo  /etc/in">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-04T12:30:40.563Z">
+<meta property="og:updated_time" content="2018-04-04T12:43:16.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决mysql中文乱码并重启mysql.md">
-<meta name="twitter:description" content="RedHat  下： 12345  开启： sudo  /etc/init.d/mysqld start  关闭： sudo  /etc/init.d/mysqld stop  重启： sudo   /etc/init.d/mysqld restart ``` Ubuntu 下：    开启： sudo  /etc/init.d/mysql start   关闭： sudo  /etc/init">
+<meta name="twitter:description" content="RedHat  下：12345   开启： sudo  /etc/init.d/mysqld start   关闭： sudo  /etc/init.d/mysqld stop   重启： sudo   /etc/init.d/mysqld restart```  Ubuntu 下：    开启： sudo  /etc/init.d/mysql start   关闭： sudo  /etc/in">
   
     <link rel="alternative" href="/atom.xml" title="Yc&#39;s notes" type="application/atom+xml">
   
@@ -167,9 +167,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> RedHat  下：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  开启： sudo  /etc/init.d/mysqld start</span><br><span class="line">  关闭： sudo  /etc/init.d/mysqld stop</span><br><span class="line">  重启： sudo   /etc/init.d/mysqld restart</span><br><span class="line"> ``` </span><br><span class="line">Ubuntu 下：</span><br></pre></td></tr></table></figure></p>
-<p>   开启： sudo  /etc/init.d/mysql start<br>   关闭： sudo  /etc/init.d/mysql stop<br>   重启：sudo  /etc/init.d/mysql restart<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ubuntu mysql 乱码解决方案一</span><br></pre></td></tr></table></figure></p>
-<p>sudo gedit /etc/mysql/my.cnf<br>在[client]下添加<br>default-character-set=utf8<br>在[mysqld]下添加<br>character-set-server = utf8<br>[mysql]下添加<br>default-character-set=utf8<br>在建表的时候指定 default charset=utf8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">另一种解决方案是用如下的配置替换my.cnf</span><br></pre></td></tr></table></figure></p>
+        <p> RedHat  下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   开启： sudo  /etc/init.d/mysqld start</span><br><span class="line">   关闭： sudo  /etc/init.d/mysqld stop</span><br><span class="line">   重启： sudo   /etc/init.d/mysqld restart</span><br><span class="line">``` </span><br><span class="line"> Ubuntu 下：</span><br></pre></td></tr></table></figure></p>
+<p>   开启： sudo  /etc/init.d/mysql start<br>   关闭： sudo  /etc/init.d/mysql stop<br>   重启：sudo  /etc/init.d/mysql restart<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ubuntu mysql 乱码解决方案一</span><br></pre></td></tr></table></figure></p>
+<p>sudo gedit /etc/mysql/my.cnf<br>在[client]下添加<br>default-character-set=utf8<br>在[mysqld]下添加<br>character-set-server = utf8<br>[mysql]下添加<br>default-character-set=utf8<br>在建表的时候指定 default charset=utf8</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">另一种解决方案是用如下的配置替换my.cnf</span><br></pre></td></tr></table></figure>
 <p>#</p>
 <h1 id="The-MySQL-database-server-configuration-file"><a href="#The-MySQL-database-server-configuration-file" class="headerlink" title="The MySQL database server configuration file."></a>The MySQL database server configuration file.</h1><p>#</p>
 <h1 id="You-can-copy-this-to-one-of"><a href="#You-can-copy-this-to-one-of" class="headerlink" title="You can copy this to one of:"></a>You can copy this to one of:</h1><h1 id="“-etc-mysql-my-cnf”-to-set-global-options"><a href="#“-etc-mysql-my-cnf”-to-set-global-options" class="headerlink" title="- “/etc/mysql/my.cnf” to set global options,"></a>- “/etc/mysql/my.cnf” to set global options,</h1><h1 id="“-my-cnf”-to-set-user-specific-options"><a href="#“-my-cnf”-to-set-user-specific-options" class="headerlink" title="- “~/.my.cnf” to set user-specific options."></a>- “~/.my.cnf” to set user-specific options.</h1><p># </p>
@@ -206,9 +207,8 @@
 <p>#no-auto-rehash    # faster start of mysql but no tab completition<br>default-character-set=utf8</p>
 <p>[isamchk]<br>key_buffer        = 16M</p>
 <p>#</p>
-<h1 id="IMPORTANT-Additional-settings-that-can-override-those-from-this-file"><a href="#IMPORTANT-Additional-settings-that-can-override-those-from-this-file" class="headerlink" title="* IMPORTANT: Additional settings that can override those from this file!"></a>* IMPORTANT: Additional settings that can override those from this file!</h1><h1 id="The-files-must-end-with-‘-cnf’-otherwise-they’ll-be-ignored"><a href="#The-files-must-end-with-‘-cnf’-otherwise-they’ll-be-ignored" class="headerlink" title="The files must end with ‘.cnf’, otherwise they’ll be ignored."></a>The files must end with ‘.cnf’, otherwise they’ll be ignored.</h1><p>#<br>!includedir /etc/mysql/conf.d/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">mysql 数据库导入导出</span><br></pre></td></tr></table></figure></p>
-<p>create databases abc;<br>set names utf8;<br>source /home/abc/abc.sql</p>
-<p>mysqldump -uroot -p db_xxx &gt; abc.sql<br><code>`</code></p>
+<h1 id="IMPORTANT-Additional-settings-that-can-override-those-from-this-file"><a href="#IMPORTANT-Additional-settings-that-can-override-those-from-this-file" class="headerlink" title="* IMPORTANT: Additional settings that can override those from this file!"></a>* IMPORTANT: Additional settings that can override those from this file!</h1><h1 id="The-files-must-end-with-‘-cnf’-otherwise-they’ll-be-ignored"><a href="#The-files-must-end-with-‘-cnf’-otherwise-they’ll-be-ignored" class="headerlink" title="The files must end with ‘.cnf’, otherwise they’ll be ignored."></a>The files must end with ‘.cnf’, otherwise they’ll be ignored.</h1><p>#!includedir /etc/mysql/conf.d/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>mysql 数据库导入导出<br>create databases abc;<br>set names utf8;<br>source /home/abc/abc.sql<br>mysqldump -uroot -p db_xxx &gt; abc.sql<br><code>`</code></p>
 
       
 
