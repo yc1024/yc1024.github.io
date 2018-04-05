@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hadoop安装教程 | Yc&#39;s notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ng通的  软件准备  需要准备jdk-1.8的安装包和hadoop的安装包在每台机器上安装 vim、ssh123以ubuntu为例sudo apt-get install vimsudo apt-get install openssh-server 设置ssh免秘钥登陆在三台机器分别执行如下命令123ssh-keygen -t rsa  // 连续敲三次回车就好cd ~/.ssh/ &amp;amp;&amp;">
+  <meta name="description" content="预备工作 硬件准备 假设已经有3台机器组成的局域网，并且是可以相互ping通的  软件准备   需要准备jdk-1.8的安装包和hadoop的安装包在每台机器上安装 vim、ssh123以ubuntu为例sudo apt-get install vimsudo apt-get install openssh-server 设置ssh免秘钥登陆在三台机器分别执行如下命令123ssh-keygen -">
 <meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop安装教程">
 <meta property="og:url" content="http://yoursite.com/2018/04/05/hadoop安装教程/index.html">
 <meta property="og:site_name" content="Yc&#39;s notes">
-<meta property="og:description" content="ng通的  软件准备  需要准备jdk-1.8的安装包和hadoop的安装包在每台机器上安装 vim、ssh123以ubuntu为例sudo apt-get install vimsudo apt-get install openssh-server 设置ssh免秘钥登陆在三台机器分别执行如下命令123ssh-keygen -t rsa  // 连续敲三次回车就好cd ~/.ssh/ &amp;amp;&amp;">
+<meta property="og:description" content="预备工作 硬件准备 假设已经有3台机器组成的局域网，并且是可以相互ping通的  软件准备   需要准备jdk-1.8的安装包和hadoop的安装包在每台机器上安装 vim、ssh123以ubuntu为例sudo apt-get install vimsudo apt-get install openssh-server 设置ssh免秘钥登陆在三台机器分别执行如下命令123ssh-keygen -">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-05T05:33:07.132Z">
+<meta property="og:updated_time" content="2018-04-05T06:59:25.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop安装教程">
-<meta name="twitter:description" content="ng通的  软件准备  需要准备jdk-1.8的安装包和hadoop的安装包在每台机器上安装 vim、ssh123以ubuntu为例sudo apt-get install vimsudo apt-get install openssh-server 设置ssh免秘钥登陆在三台机器分别执行如下命令123ssh-keygen -t rsa  // 连续敲三次回车就好cd ~/.ssh/ &amp;amp;&amp;">
+<meta name="twitter:description" content="预备工作 硬件准备 假设已经有3台机器组成的局域网，并且是可以相互ping通的  软件准备   需要准备jdk-1.8的安装包和hadoop的安装包在每台机器上安装 vim、ssh123以ubuntu为例sudo apt-get install vimsudo apt-get install openssh-server 设置ssh免秘钥登陆在三台机器分别执行如下命令123ssh-keygen -">
   
     <link rel="alternative" href="/atom.xml" title="Yc&#39;s notes" type="application/atom+xml">
   
@@ -167,9 +167,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ng通的</p>
-<ul>
-<li>软件准备</li>
+        <h3 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h3><ul>
+<li><p>硬件准备</p>
+<p>假设已经有3台机器组成的局域网，并且是可以相互ping通的</p>
+</li>
+<li><p>软件准备</p>
+</li>
 </ul>
 <p>需要准备jdk-1.8的安装包和hadoop的安装包<br>在每台机器上安装 vim、ssh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">以ubuntu为例</span><br><span class="line">sudo apt-get install vim</span><br><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure></p>
 <h3 id="设置ssh免秘钥登陆"><a href="#设置ssh免秘钥登陆" class="headerlink" title="设置ssh免秘钥登陆"></a>设置ssh免秘钥登陆</h3><p>在三台机器分别执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa  // 连续敲三次回车就好</span><br><span class="line">cd ~/.ssh/ &amp;&amp; touch authorized_keys &amp;&amp; chmod 600  authorized_keys // 创建出 authorized_keys文件，并且讲权限置为600</span><br><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys //将公钥追加到authorized_keys文件中</span><br></pre></td></tr></table></figure></p>
@@ -187,9 +190,7 @@
 <li>参考文项中的某些路径有问题</li>
 </ol>
 <p>比如我配置第一个节点是　master,但是他叫namenode,然后配置的时候遇到坑，不能自拔 </p>
-<p>###　参考文献</p>
-<p><a href="http://blog.csdn.net/zl007700/article/details/50533675" target="_blank" rel="noopener">http://blog.csdn.net/zl007700/article/details/50533675</a></p>
-<p><a href="http://blog.csdn.net/zcf1002797280/article/details/49500027" target="_blank" rel="noopener">http://blog.csdn.net/zcf1002797280/article/details/49500027</a></p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://blog.csdn.net/zl007700/article/details/50533675" target="_blank" rel="noopener">http://blog.csdn.net/zl007700/article/details/50533675</a><br><a href="http://blog.csdn.net/zcf1002797280/article/details/49500027" target="_blank" rel="noopener">http://blog.csdn.net/zcf1002797280/article/details/49500027</a></p>
 <h3 id="为了不留坑，做了更详细的压缩"><a href="#为了不留坑，做了更详细的压缩" class="headerlink" title="为了不留坑，做了更详细的压缩"></a>为了不留坑，做了更详细的压缩</h3><p>建议hadoop和java都解压到/opt目录下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf hadoop-2.5.1.tar.gz -C /opt</span><br><span class="line">cd /opt &amp;&amp; sudo chown -R hdusr:hdusr hadoop-2.5.1/</span><br><span class="line">//这里的hdusr表示你的用户名</span><br><span class="line">cd /opt/hadoop-2.5.1/ &amp;&amp; mkdir tmp &amp;&amp; mkdir -p dfs/data dfs/name</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/software/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">配置文件都在这个路径下，照着改</span><br></pre></td></tr></table></figure>
 <p>core-site.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://master:9000&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/opt/hadoop-2.5.1/tmp&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;io.file.buffer.size&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;131702&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></p>
@@ -213,12 +214,10 @@
             <span class="tooltip-item">
               赏
             </span>
-            <span class="tooltip-content">
                   <div class="reward-box">
                       <img class="reward-img" src="/img/wepay.jpg">
                       <span class="reward-type">微信</span>
                   </div>
-            </span>
           </div>
           </a>
         </div>
