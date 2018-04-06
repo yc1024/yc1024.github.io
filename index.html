@@ -330,6 +330,85 @@
 
 
   
+    <article id="post-解决python图题乱码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/05/解决python图题乱码/">解决python图题乱码.md</a>
+    </h1>
+  
+
+        
+        <a href="/2016/06/05/解决python图题乱码/" class="archive-article-date">
+  	<time datetime="2016-06-05T10:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="在用python的时候经常会遇到乱码问题"><a href="#在用python的时候经常会遇到乱码问题" class="headerlink" title="在用python的时候经常会遇到乱码问题"></a>在用python的时候经常会遇到乱码问题</h3><h4 id="1-注释乱码问题"><a href="#1-注释乱码问题" class="headerlink" title="1. 注释乱码问题"></a>1. 注释乱码问题</h4><p>在代码的最上面添加：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-无法识别中文字体"><a href="#2-无法识别中文字体" class="headerlink" title="2. 无法识别中文字体"></a>2. 无法识别中文字体</h4><p>通过运行以下代码查看系统中可以用的中文字体：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> FontManager</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line">fm = FontManager()</span><br><span class="line">mat_fonts = set(f.name <span class="keyword">for</span> f <span class="keyword">in</span> fm.ttflist)</span><br><span class="line"></span><br><span class="line">output = subprocess.check_output(</span><br><span class="line">    <span class="string">'fc-list :lang=zh -f "%&#123;family&#125;\n"'</span>, shell=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># print '*' * 10, '系统可用的中文字体', '*' * 10</span></span><br><span class="line"><span class="comment"># print output</span></span><br><span class="line">zh_fonts = set(f.split(<span class="string">','</span>, <span class="number">1</span>)[<span class="number">0</span>] <span class="keyword">for</span> f <span class="keyword">in</span> output.split(<span class="string">'\n'</span>))</span><br><span class="line">available = mat_fonts &amp; zh_fonts</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">'*'</span> * <span class="number">10</span>, <span class="string">'可用的字体'</span>, <span class="string">'*'</span> * <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> available:</span><br><span class="line">    <span class="keyword">print</span> f</span><br></pre></td></tr></table></figure></p>
+<p>加入以下语句：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</span><br><span class="line">mpl.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'Droid Sans Fallback'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>注：Droid Sans Fallback 为查询得到的系统中的中文字体</p>
+<p>####3. 画图时候“-”号显示为方块问题<br>加入以下语句：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mpl.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line"><span class="comment">#解决保存图像是负号'-'显示为方块的问题</span></span><br></pre></td></tr></table></figure></p>
+<p>参考文献<br>[1] <a href="http://www.cnblogs.com/wei-li/archive/2012/05/23/2506940.html#oo" target="_blank" rel="noopener">http://www.cnblogs.com/wei-li/archive/2012/05/23/2506940.html#oo</a><br>[2] <a href="http://old.sebug.net/paper/books/scipydoc/index.html#id2" target="_blank" rel="noopener">http://old.sebug.net/paper/books/scipydoc/index.html#id2</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/06/05/解决python图题乱码/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-解决mysql中文乱码并重启mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1029,6 +1108,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
