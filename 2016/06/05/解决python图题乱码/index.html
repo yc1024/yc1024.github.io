@@ -5,18 +5,18 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://yc1024.github.io">
   <title>解决python图题乱码 | Yc&#39;s notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在用python的时候经常会遇到乱码问题1. 注释乱码问题在代码的最上面添加：1# -*- coding: utf-8 -*- 2. 无法识别中文字体通过运行以下代码查看系统中可以用的中文字体：123456789101112131415161718#! /usr/bin/env python# -*- coding: utf-8 -*-from matplotlib.font_manager im">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决python图题乱码">
-<meta property="og:url" content="http://yoursite.com/2016/06/05/解决python图题乱码/index.html">
+<meta property="og:url" content="https://yc1024.github.io/2016/06/05/解决python图题乱码/index.html">
 <meta property="og:site_name" content="Yc&#39;s notes">
 <meta property="og:description" content="在用python的时候经常会遇到乱码问题1. 注释乱码问题在代码的最上面添加：1# -*- coding: utf-8 -*- 2. 无法识别中文字体通过运行以下代码查看系统中可以用的中文字体：123456789101112131415161718#! /usr/bin/env python# -*- coding: utf-8 -*-from matplotlib.font_manager im">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-06T03:53:29.131Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-06T11:47:40.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决python图题乱码">
 <meta name="twitter:description" content="在用python的时候经常会遇到乱码问题1. 注释乱码问题在代码的最上面添加：1# -*- coding: utf-8 -*- 2. 无法识别中文字体通过运行以下代码查看系统中可以用的中文字体：123456789101112131415161718#! /usr/bin/env python# -*- coding: utf-8 -*-from matplotlib.font_manager im">
@@ -53,6 +53,8 @@
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Yc</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">yc</p>
 		
 
 		<nav class="header-menu">
@@ -107,6 +109,8 @@
 			<hgroup>
 			  <h1 class="header-author js-header-author">Yc</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>yc<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -169,6 +173,7 @@
       
         <h3 id="在用python的时候经常会遇到乱码问题"><a href="#在用python的时候经常会遇到乱码问题" class="headerlink" title="在用python的时候经常会遇到乱码问题"></a>在用python的时候经常会遇到乱码问题</h3><h4 id="1-注释乱码问题"><a href="#1-注释乱码问题" class="headerlink" title="1. 注释乱码问题"></a>1. 注释乱码问题</h4><p>在代码的最上面添加：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="2-无法识别中文字体"><a href="#2-无法识别中文字体" class="headerlink" title="2. 无法识别中文字体"></a>2. 无法识别中文字体</h4><p>通过运行以下代码查看系统中可以用的中文字体：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> FontManager</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line">fm = FontManager()</span><br><span class="line">mat_fonts = set(f.name <span class="keyword">for</span> f <span class="keyword">in</span> fm.ttflist)</span><br><span class="line"></span><br><span class="line">output = subprocess.check_output(</span><br><span class="line">    <span class="string">'fc-list :lang=zh -f "%&#123;family&#125;\n"'</span>, shell=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># print '*' * 10, '系统可用的中文字体', '*' * 10</span></span><br><span class="line"><span class="comment"># print output</span></span><br><span class="line">zh_fonts = set(f.split(<span class="string">','</span>, <span class="number">1</span>)[<span class="number">0</span>] <span class="keyword">for</span> f <span class="keyword">in</span> output.split(<span class="string">'\n'</span>))</span><br><span class="line">available = mat_fonts &amp; zh_fonts</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">'*'</span> * <span class="number">10</span>, <span class="string">'可用的字体'</span>, <span class="string">'*'</span> * <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> available:</span><br><span class="line">    <span class="keyword">print</span> f</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>加入以下语句：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</span><br><span class="line">mpl.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'Droid Sans Fallback'</span>]</span><br></pre></td></tr></table></figure></p>
 <p>注：Droid Sans Fallback 为查询得到的系统中的中文字体</p>
 <h4 id="3-画图时候“-”号显示为方块问题"><a href="#3-画图时候“-”号显示为方块问题" class="headerlink" title="3. 画图时候“-”号显示为方块问题"></a>3. 画图时候“-”号显示为方块问题</h4><p>加入以下语句：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mpl.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line"><span class="comment">#解决保存图像是负号'-'显示为方块的问题</span></span><br></pre></td></tr></table></figure></p>
@@ -255,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2016/06/05/解决python图题乱码/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yc1024.github.io/2016/06/05/解决python图题乱码/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,7 +285,7 @@
   
   
     <a href="/2016/05/04/解决mysql中文乱码并重启mysql/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">解决mysql中文乱码并重启mysql.md</div>
+      <div class="article-nav-title">解决mysql中文乱码并重启mysql</div>
       <i class="icon-circle-right"></i>
     </a>
   
