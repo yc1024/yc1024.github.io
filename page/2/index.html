@@ -152,6 +152,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysqlConnectiotException" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/04/mysqlConnectiotException/">mysqlConnectiotException</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/04/mysqlConnectiotException/" class="archive-article-date">
+  	<time datetime="2016-03-04T08:08:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>授权语句:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;root&apos; with grant option;</span><br><span class="line">//授权后刷新权限</span><br><span class="line">flush privileges</span><br></pre></td></tr></table></figure></p>
+<p>注: 将root 改为你的mysql用户<br>修改数据库中的root密码，登陆后在mysql终端输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update mysql.user set password=PASSWORD(&apos;111111&apos;) where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>参考文献<br>[1] <a href="http://blog.csdn.net/xinshou_jiaoming/article/details/8585562" target="_blank" rel="noopener">http://blog.csdn.net/xinshou_jiaoming/article/details/8585562</a><br>[2] <a href="http://www.2cto.com/database/201412/364316.html" target="_blank" rel="noopener">http://www.2cto.com/database/201412/364316.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/04/mysqlConnectiotException/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-设计模式总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -513,6 +589,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">绘图工具</a>
               </li>
              
               <li class="article-tag-list-item">
