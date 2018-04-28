@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yc1024.github.io">
-  <title>Yc&#39;s notes</title>
+  <title>terminator美化 | Yc&#39;s notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="note something">
-<meta name="keywords" content="notes">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yc&#39;s notes">
-<meta property="og:url" content="https://yc1024.github.io/page/2/index.html">
+  <meta name="description" content="首先安装terminator1sudo apt-get install terminator 因为初始化界面不太美观，可以设置配置文件，方法如下： 1vim ~/.config/terminator/config 如果报错，Unable to open ~/.config/terminator/config，解决方法：打开terminator终端，然后右击终端的黑色背景，选择preference-">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="terminator美化">
+<meta property="og:url" content="https://yc1024.github.io/2018/04/28/terminator配置文件/index.html">
 <meta property="og:site_name" content="Yc&#39;s notes">
-<meta property="og:description" content="note something">
+<meta property="og:description" content="首先安装terminator1sudo apt-get install terminator 因为初始化界面不太美观，可以设置配置文件，方法如下： 1vim ~/.config/terminator/config 如果报错，Unable to open ~/.config/terminator/config，解决方法：打开terminator终端，然后右击终端的黑色背景，选择preference-">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-28T09:41:13.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yc&#39;s notes">
-<meta name="twitter:description" content="note something">
+<meta name="twitter:title" content="terminator美化">
+<meta name="twitter:description" content="首先安装terminator1sudo apt-get install terminator 因为初始化界面不太美观，可以设置配置文件，方法如下： 1vim ~/.config/terminator/config 如果报错，Unable to open ~/.config/terminator/config，解决方法：打开terminator终端，然后右击终端的黑色背景，选择preference-">
   
     <link rel="alternative" href="/atom.xml" title="Yc&#39;s notes" type="application/atom+xml">
   
@@ -150,35 +151,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-解决python图题乱码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-terminator配置文件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/05/解决python图题乱码/">解决python图题乱码</a>
+    <h1 class="article-title" itemprop="name">
+      terminator美化
     </h1>
   
 
         
-        <a href="/2016/06/05/解决python图题乱码/" class="archive-article-date">
-  	<time datetime="2016-06-05T10:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-05</time>
+        <a href="/2018/04/28/terminator配置文件/" class="archive-article-date">
+  	<time datetime="2018-04-28T09:40:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="在用python的时候经常会遇到乱码问题"><a href="#在用python的时候经常会遇到乱码问题" class="headerlink" title="在用python的时候经常会遇到乱码问题"></a>在用python的时候经常会遇到乱码问题</h3><h4 id="1-注释乱码问题"><a href="#1-注释乱码问题" class="headerlink" title="1. 注释乱码问题"></a>1. 注释乱码问题</h4><p>在代码的最上面添加：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="2-无法识别中文字体"><a href="#2-无法识别中文字体" class="headerlink" title="2. 无法识别中文字体"></a>2. 无法识别中文字体</h4><p>通过运行以下代码查看系统中可以用的中文字体：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> FontManager</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line">fm = FontManager()</span><br><span class="line">mat_fonts = set(f.name <span class="keyword">for</span> f <span class="keyword">in</span> fm.ttflist)</span><br><span class="line"></span><br><span class="line">output = subprocess.check_output(</span><br><span class="line">    <span class="string">'fc-list :lang=zh -f "%&#123;family&#125;\n"'</span>, shell=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># print '*' * 10, '系统可用的中文字体', '*' * 10</span></span><br><span class="line"><span class="comment"># print output</span></span><br><span class="line">zh_fonts = set(f.split(<span class="string">','</span>, <span class="number">1</span>)[<span class="number">0</span>] <span class="keyword">for</span> f <span class="keyword">in</span> output.split(<span class="string">'\n'</span>))</span><br><span class="line">available = mat_fonts &amp; zh_fonts</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">'*'</span> * <span class="number">10</span>, <span class="string">'可用的字体'</span>, <span class="string">'*'</span> * <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> available:</span><br><span class="line">    <span class="keyword">print</span> f</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2016/06/05/解决python图题乱码/#more">more >></a>
-        
+        <p>首先安装terminator<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install terminator</span><br></pre></td></tr></table></figure></p>
+<p>因为初始化界面不太美观，可以设置配置文件，方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.config/terminator/config</span><br></pre></td></tr></table></figure>
+<p>如果报错，<code>Unable to open ~/.config/terminator/config</code>，解决方法：<br>打开<code>terminator</code>终端，然后右击终端的黑色背景，选择<code>preference-&gt;layouts-&gt;add</code>，关闭该窗口即可找到<code>config</code>文件。</p>
+<p>我当前使用的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[global_config]</span><br><span class="line">[keybindings]</span><br><span class="line">[profiles]</span><br><span class="line">  [[default]]</span><br><span class="line">    use_system_font = False # 是否启用系统字体</span><br><span class="line">    login_shell = True</span><br><span class="line">    background_darkness = 0.92 # 背景颜色</span><br><span class="line">    background_type = transparent</span><br><span class="line">    background_image = None</span><br><span class="line">    cursor_color = &quot;#3036ec&quot; # 光标颜色</span><br><span class="line">    foreground_color = &quot;#00ff00&quot;</span><br><span class="line">    show_titlebar = False # 不显示标题栏，也就是 terminator 中那个默认的红色的标题栏</span><br><span class="line">    custom_command = tmux</span><br><span class="line">    font = Ubuntu Mono 15  # 字体设置，后面的数字表示字体大小</span><br><span class="line">[layouts]</span><br><span class="line">  [[default]]</span><br><span class="line">    [[[child1]]]</span><br><span class="line">      type = Terminal</span><br><span class="line">      parent = window0</span><br><span class="line">    [[[window0]]]</span><br><span class="line">      type = Window</span><br><span class="line">      parent = &quot;&quot;</span><br><span class="line">[plugins]</span><br></pre></td></tr></table></figure></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+	    <span class="tooltip-content">
+             <img class="reward-img" src="/img/wepay.jpg">
+            </span>
+	</div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -189,7 +202,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -198,16 +211,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/06/05/解决python图题乱码/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yc1024.github.io/2018/04/28/terminator配置文件/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/07/gitignore不生效/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gitignore不生效</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -227,321 +299,14 @@
 
 
 
-
-  
-    <article id="post-解决mysql中文乱码并重启mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/04/解决mysql中文乱码并重启mysql/">解决mysql中文乱码并重启mysql</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/04/解决mysql中文乱码并重启mysql/" class="archive-article-date">
-  	<time datetime="2016-05-04T06:08:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>redhat  下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">开启： sudo  /etc/init.d/mysqld start</span><br><span class="line">关闭： sudo  /etc/init.d/mysqld stop</span><br><span class="line">重启： sudo   /etc/init.d/mysqld restart</span><br></pre></td></tr></table></figure></p>
-<p>ubuntu 下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">开启： sudo  /etc/init.d/mysql start</span><br><span class="line">关闭： sudo  /etc/init.d/mysql stop</span><br><span class="line">重启：sudo  /etc/init.d/mysql restart</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2016/05/04/解决mysql中文乱码并重启mysql/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/04/解决mysql中文乱码并重启mysql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysqlConnectiotException" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/04/mysqlConnectiotException/">mysqlConnectiotException</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/04/mysqlConnectiotException/" class="archive-article-date">
-  	<time datetime="2016-03-04T08:08:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>授权语句:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;root&apos; with grant option;</span><br><span class="line">//授权后刷新权限</span><br><span class="line">flush privileges</span><br></pre></td></tr></table></figure></p>
-<p>注: 将root 改为你的mysql用户<br>修改数据库中的root密码，登陆后在mysql终端输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update mysql.user set password=PASSWORD(&apos;111111&apos;) where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>参考文献<br>[1] <a href="http://blog.csdn.net/xinshou_jiaoming/article/details/8585562" target="_blank" rel="noopener">http://blog.csdn.net/xinshou_jiaoming/article/details/8585562</a><br>[2] <a href="http://www.2cto.com/database/201412/364316.html" target="_blank" rel="noopener">http://www.2cto.com/database/201412/364316.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/04/mysqlConnectiotException/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/05/设计模式总结/">设计模式总结</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/05/设计模式总结/" class="archive-article-date">
-  	<time datetime="2016-02-05T08:08:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="设计模式总结"><a href="#设计模式总结" class="headerlink" title="设计模式总结"></a><center>设计模式总结</center></h1><h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a><left>创建型模式</left></h2><h3 id="1-抽象工厂"><a href="#1-抽象工厂" class="headerlink" title="1. 抽象工厂"></a>1. 抽象工厂</h3><p>模式名称：抽象工厂<br><br>意图：提供一个创建一系列相关或相互依赖对象的接口，而无需制定他们具体的类。<br><br>应用场景：<br><br>（1）系统独立于它的创建、组合和表示。<br><br>（2）一个系统要由多个产品系列中的一个来配置的。<br><br>（3）当强调一系列相关的产品对象的设计以便联合使用。<br><br>（4）若提供类库，只想提供接口，而不是实现。<br><br>
-        
-          <a class="article-more-a" href="/2016/02/05/设计模式总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/05/设计模式总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-maven常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/05/maven常用命令/">maven常用命令</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/05/maven常用命令/" class="archive-article-date">
-  	<time datetime="2016-02-05T03:08:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>maven 打jar包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure></p>
-<p>maven 清除项目:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br></pre></td></tr></table></figure></p>
-<p>maven 转eclipse项目:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn eclipse:eclipse</span><br></pre></td></tr></table></figure></p>
-<p>maven 转idea项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn idea:idea</span><br></pre></td></tr></table></figure></p>
-<p>maven  拷贝依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn dependency:copy-dependencies</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2016/02/05/maven常用命令/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/05/maven常用命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -564,8 +329,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
