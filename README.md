@@ -1,5 +1,6 @@
 ### 使用本博客需要安装的插件
 npm install hexo //安装插件
+
 npm install hexo-deployer-git //发布到git上时必要的插件
 
 命令
