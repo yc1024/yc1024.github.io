@@ -152,6 +152,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hadoop安装教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/05/hadoop安装教程/">hadoop安装教程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/05/hadoop安装教程/" class="archive-article-date">
+  	<time datetime="2018-04-05T05:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h3><ul>
+<li><p>硬件准备</p>
+<p>假设已经有3台机器组成的局域网，并且是可以相互ping通的</p>
+</li>
+<li><p>软件准备</p>
+</li>
+</ul>
+<p>需要准备jdk-1.8的安装包和hadoop的安装包<br>在每台机器上安装 vim、ssh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">以ubuntu为例</span><br><span class="line">sudo apt-get install vim</span><br><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置ssh免秘钥登陆"><a href="#设置ssh免秘钥登陆" class="headerlink" title="设置ssh免秘钥登陆"></a>设置ssh免秘钥登陆</h3><p>在三台机器分别执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa  // 连续敲三次回车就好</span><br><span class="line">cd ~/.ssh/ &amp;&amp; touch authorized_keys &amp;&amp; chmod 600  authorized_keys // 创建出 authorized_keys文件，并且讲权限置为600</span><br><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys //将公钥追加到authorized_keys文件中</span><br></pre></td></tr></table></figure></p>
+<p>到目前为止，应该是每台机器可以免密码登录自己的机器了<br>
+        
+          <a class="article-more-a" href="/2018/04/05/hadoop安装教程/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/05/hadoop安装教程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql忘记root密码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -458,82 +543,6 @@
 
 
   
-    <article id="post-设计模式总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/05/设计模式总结/">设计模式总结</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/05/设计模式总结/" class="archive-article-date">
-  	<time datetime="2016-02-05T08:08:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="设计模式总结"><a href="#设计模式总结" class="headerlink" title="设计模式总结"></a><center>设计模式总结</center></h1><h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a><left>创建型模式</left></h2><h3 id="1-抽象工厂"><a href="#1-抽象工厂" class="headerlink" title="1. 抽象工厂"></a>1. 抽象工厂</h3><p>模式名称：抽象工厂<br><br>意图：提供一个创建一系列相关或相互依赖对象的接口，而无需制定他们具体的类。<br><br>应用场景：<br><br>（1）系统独立于它的创建、组合和表示。<br><br>（2）一个系统要由多个产品系列中的一个来配置的。<br><br>（3）当强调一系列相关的产品对象的设计以便联合使用。<br><br>（4）若提供类库，只想提供接口，而不是实现。<br><br>
-        
-          <a class="article-more-a" href="/2016/02/05/设计模式总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/05/设计模式总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -673,6 +682,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">绘图工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
