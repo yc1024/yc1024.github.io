@@ -152,6 +152,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-一款非常好用的流程图绘制工具graphviz" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/07/一款非常好用的流程图绘制工具graphviz/">一款非常好用的流程图绘制工具graphviz</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/07/一款非常好用的流程图绘制工具graphviz/" class="archive-article-date">
+  	<time datetime="2018-04-07T02:29:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="graphviz-简介"><a href="#graphviz-简介" class="headerlink" title="graphviz 简介"></a>graphviz 简介</h3><p>本文介绍一个高效而简洁的绘图工具graphviz。graphviz是贝尔实验室开发的一个开源的工具包，它使用一个特定的DSL(领域特定语言): dot作为脚本语言，然后使用布局引擎来解析此脚本，并完成自动布局。graphviz提供丰富的导出格式，如常用的图片格式，SVG，PDF格式等。</p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>graphviz包含3中元素，图，顶点和边。每个元素都可以具有各自的属性，用来定义字体，样式，颜色，形状等。下面是一些简单的示例，可以帮助我们快速的了解graphviz的基本用法。</p>
+<h3 id="graphviz的安装及使用-以centos为例"><a href="#graphviz的安装及使用-以centos为例" class="headerlink" title="graphviz的安装及使用(以centos为例)"></a>graphviz的安装及使用(以centos为例)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install graphviz -y</span><br><span class="line">dot -Tpng -odemo.png demo.gv // 假设代码在demo.gv文件中，执行该命令，生成demo.png的图片</span><br></pre></td></tr></table></figure>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><p>比如，要绘制一个有向图，包含4个节点a,b,c,d。其中a指向b，b和c指向d。可以定义下列脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">digraph abc&#123;</span><br><span class="line">  a;</span><br><span class="line">  b;</span><br><span class="line">  c;</span><br><span class="line">  d;</span><br><span class="line"> </span><br><span class="line">  a -&gt; b;</span><br><span class="line">  b -&gt; d;</span><br><span class="line">  c -&gt; d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/graphvizdemo.png" alt="demo图"></p>
+<p>这里就只抛砖引玉，其余的图形这里就不再赘述了，需要的时候自行探索<br>BTW 推荐一款非常好用的在线url图绘制工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.processon.com/diagrams</span><br></pre></td></tr></table></figure></p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="http://icodeit.org/2015/11/using-graphviz-drawing/" target="_blank" rel="noopener">http://icodeit.org/2015/11/using-graphviz-drawing/</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">绘图工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/07/一款非常好用的流程图绘制工具graphviz/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hadoop安装教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -438,82 +519,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/05/04/解决mysql中文乱码并重启mysql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysqlConnectiotException" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/04/mysqlConnectiotException/">mysqlConnectiotException</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/04/mysqlConnectiotException/" class="archive-article-date">
-  	<time datetime="2016-03-04T08:08:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>授权语句:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;root&apos; with grant option;</span><br><span class="line">//授权后刷新权限</span><br><span class="line">flush privileges</span><br></pre></td></tr></table></figure></p>
-<p>注: 将root 改为你的mysql用户<br>修改数据库中的root密码，登陆后在mysql终端输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update mysql.user set password=PASSWORD(&apos;111111&apos;) where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>参考文献<br>[1] <a href="http://blog.csdn.net/xinshou_jiaoming/article/details/8585562" target="_blank" rel="noopener">http://blog.csdn.net/xinshou_jiaoming/article/details/8585562</a><br>[2] <a href="http://www.2cto.com/database/201412/364316.html" target="_blank" rel="noopener">http://www.2cto.com/database/201412/364316.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/04/mysqlConnectiotException/">展开全文 >></a>
         </p>
       
 
