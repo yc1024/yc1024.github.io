@@ -252,36 +252,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script>
-if("12345678"==prompt("请输入密码"))
-{
-alert("正确");
-}
-else
-{
-alert("错误");
-location="http://blog.laphets.com"; #返回网站，请自定义
+        <script src=/js/crypto-js.js></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
 }
 </script>
-
-<p>作者：湿货创造者_Hue<br>链接：<a href="https://www.jianshu.com/p/5479bf2d57a0" target="_blank" rel="noopener">https://www.jianshu.com/p/5479bf2d57a0</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。<br>又是一个周五，周末马上就来了，这周计划去浐灞湿地公园浪，提前看了一下交通吃饭等..</p>
-<h3 id="园区介绍"><a href="#园区介绍" class="headerlink" title="园区介绍"></a>园区介绍</h3><p>浐灞国家湿地公园最大特色是”水”。湿地公园水域面积2000多亩，从灞河而来，通过取水口、沉沙池、人工湿地、种植池、退水口层层净化后又回到灞河里去。种植池里生长着芦苇、香蒲，水葱等水生植物，其核心的技术，就是钠离子膨润土防水毯技术，不仅有效防止水的渗漏，而且植物的根系扎不透，且不影响植物生长，该技术在整个湿地公园得到广泛应用。</p>
-<p>浐灞国家湿地公园内大面积水地，为动物繁衍提供良好的栖息环境，这里是全国三大候鸟迁徙路线之一的中部路线，因而此区域栖息多种野生水禽。目前已查明区域内动物50科150种，有娃娃鱼、锦鲤、孔雀、鸿雁，斑头雁等，随着季节更迭，白琵鹭、大天鹅等鸟类相继栖住。</p>
-<h3 id="入园"><a href="#入园" class="headerlink" title="入园"></a>入园</h3><p>只能从南门进入</p>
-<h3 id="交通"><a href="#交通" class="headerlink" title="交通"></a>交通</h3><p>首先地铁3号线到辛家庙，然后据说有<code>315路、315区间、316路、316区间</code>，公交随缘吧，感觉滴滴比较靠谱,回的时候如果不好打车的话就还得考虑公交 sad<br>回来又看了看地图发现,这个路线规划的有报名,可以更优的解决方案是3号线坐到终点然后打车</p>
-<h3 id="引导图"><a href="#引导图" class="headerlink" title="引导图"></a>引导图</h3><p><img src="/img/chanba_index.jpeg" alt="游览图"></p>
-<h3 id="标志性建筑"><a href="#标志性建筑" class="headerlink" title="标志性建筑"></a>标志性建筑</h3><ul>
-<li>起源门<br>起源门也就是南门，进门的时候能看到</li>
-<li>科普馆<br>字面意思 科普各种科学小知识的地方</li>
-<li>观鸟台<br>字面意思 一个类似塔的建筑，可以看到飞鸟</li>
-<li>湿地水街</li>
-</ul>
-<h3 id="服务区"><a href="#服务区" class="headerlink" title="服务区"></a>服务区</h3><p>园区设花溪茶社、滋水榭、稼穑园三大服务区</p>
-<h3 id="园内交通"><a href="#园内交通" class="headerlink" title="园内交通"></a>园内交通</h3><p>园区比较大可以租赁自行车或者乘坐电瓶车</p>
-<h3 id="游览时间"><a href="#游览时间" class="headerlink" title="游览时间"></a>游览时间</h3><p>半天至一天。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>最好自己带些吃食，里面吃饭的地方不多。注意防晒！</p>
-<h3 id="趣事"><a href="#趣事" class="headerlink" title="趣事"></a>趣事</h3><p>小叶黄杨? 向日葵?</p>
-
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
       
 
       
@@ -691,11 +701,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
